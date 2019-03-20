@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h3 id="h3">{{msg}}</h3>
+    </div>
+    <script>
+        var vm=new Vue({
+           el:'#app',
+           data:{
+               msg:'ok'
+           },
+           methods:{
+               show(){
+                   console.log('执行show方法')
+               }
+           },
+           beforeCreate(){//第一个生命周期函数
+            //生命周期函数执行时  data和methods中的数据还没初始化
+
+           },
+           created(){//第二个生命周期函数
+            //已被初始化
+            console.log(this.msg)
+            this.show()
+
+           },
+           beforeMount(){//第三个周期函数  
+            //模板已经在内存中编译完成，单位渲染到页面
+
+           },
+           mounted(){//第四个生命周期函数，用户可以看到已经渲染好的页面
+
+           },
+           //运行中的两个事件
+           beforeUpdate(){//界面数据没更新   data数据更新了
+
+           },
+           updated(){//页面和data中的数据保持同步
+
+           }
+
+
+        });
+    </script>
+</body>
+
+</html>

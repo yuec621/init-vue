@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg | msgFormat('大大')}}</p>
+    </div>
+    <script>
+        //定义一个过滤器
+        Vue.filter('msgFormat',function(msg,arg){
+            //正则---全局匹配
+           return msg.replace(/最美/g,arg)
+        })
+        
+
+        var vm=new Vue({
+           el:'#app',
+           data:{
+               msg:'想当年，谁是世界上最美的女人,最美的'
+           },
+           methods:{}
+        });
+    </script>
+</body>
+
+</html>
