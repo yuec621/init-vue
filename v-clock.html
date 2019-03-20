@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+    <style>
+    [v-clock] {
+        display: none;
+    }
+    </style>
+    
+</head>
+<body>
+    <div id=v-html>
+        
+        <p v-clock>{{msg}}</p>
+        <h4 v-text="msg"></h4>
+        <div>{{masg2}}</div>
+        <div v-html="msg2"></div>
+        <!--插值表达式：v-clock解决闪烁 v-text v-html  v-bind可简写成 ：-->
+        <!--v-on  事件绑定机制 缩写@-->
+        <input type="button" value="按钮" v-bind:title="mytitle+'123'" v-on:click="show">
+    </div>
+    <script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            msg:'123',
+            msg2:'<h1>我是h1</h1>',
+            mytitle:'自定义',
+            
+        },
+        methods:{
+            show:function(){
+                alert('hello')
+            }
+        }
+    })
+    </script>
+</body>
+</html>

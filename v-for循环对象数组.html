@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <p>{{list[]}}</p> -->
+        <!-- <p v-for="(item,i) in list">索引值：{{i}}---每一项：{{item}}</p> -->
+        <!--在遍历对象身上的键值对时，除了 键 值 第三个还有一个索引-->
+        <!-- <p v-for="user in list">{{user.id}}---{{user.name}}</p> -->
+        <!--迭代数据  从第一个开始-->
+        <!-- <p v-for="count in 10">这是第{{count}}次</p> -->
+        <div>
+        <label>
+            Id：<input type="text" v-model="id">
+        </label>
+         <label>
+            name：<input type="text" v-model="name">
+        </label>
+        <input type="button" value="添加" @click="add" >
+        </div>
+
+        <p v-for="item in list" :key="item">
+            <input type="checkbox">
+            {{item.name}}
+        </p>
+
+    </div>
+    <script>
+        var vm=new Vue({
+           el:'#app',
+           
+           data:{
+                id:'',
+                name:'',
+               //list:[1,2,3,4,5,4]
+               list:[
+                   {
+                   id:1,
+                   name:'rs'
+               },
+                {
+                   id:2,
+                   name:'rs2'
+               },
+                {
+                   id:3,
+                   name:'rs3'
+               },
+                {
+                   id:4,
+                   name:'rs4'
+               }
+            ]
+           },
+           methods:{
+               add(){//添加方法
+                  this.list.push({id:this.id,name:this.name}) 
+               }
+           }
+        });
+    </script>
+</body>
+
+</html>
