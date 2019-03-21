@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+    <style>
+    #h41{
+        color: red;
+    }
+    
+    </style>
+</head>
+
+
+    <div id="app">
+        <!-- 若要使用组件，把组件的名称以html标签的形式  引入到页面中即可 -->
+        <!-- <my-com> </my-com> -->
+        <!-- <mycom2></mycom2> -->
+    </div>
+
+    <div id="app2">
+        <login></login>
+    </div>
+
+    <template id="templ">
+        <h4>好用</h4>
+    </template>
+    <script>
+        /*
+      var com= Vue.extend({//第一种
+            template:'<h3>创建组件</h3>'
+        })
+
+        Vue.component('myCom',com)
+        */
+        /*
+        Vue.component('mycom2',{//第二种
+            //template属性只能由一个根元素
+            template:'<h1>组件</h1>'
+        })
+        */
+
+        Vue.component('mycom3',{//第三种
+            template:'#templ'
+        })
+
+        var vm=new Vue({
+           el:'#app',
+           data:{},
+           methods:{}
+        });
+        var vm2=new Vue({
+           el:'#app2',
+           data: {},
+           methods: {},
+           filter: {},
+           directives: {},
+           component:{
+               login: {
+                template: '<h1>私有组件</h1>'
+               }
+           }
+        });
+
+
+
+    </script>
+</body>
+
+</html>

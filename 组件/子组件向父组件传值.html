@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app1',
+            data: {
+                msg: '123456父组件'
+            },
+            methods: {},
+            components: {
+                //子组件中无法访问父组件中的data数据
+                com: {
+                    template: '<h1>子组件</h1>',
+                    props: ['parentmsg'] //父组件传递过来的parentmsg属性  现在props中定义一下
+                }
+            }
+        });
+    </script>
+    <style>
+#app1{
+    border:1px solid red;
+    width: 40rpx;
+    height: 60rpx;
+}
+</style>
+</head>
+
+<body>
+    <div id="app1">
+        <com :parentmsg="msg"></com>
+    </div>
+    
+</body>
+
+</html>
