@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://vuejs.org/js/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-css/1.4.6/select2-bootstrap.min.css">
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="元素" @click="getElent" ref="btn">
+        <h3 id="id3" ref="id3">梵蒂冈发的</h3>
+        <hr>
+        <login ref="mylogin"></login>
+    </div>
+    <script>
+        var login={
+            template:'<h1>登录组件</h1>',
+            data(){
+                return{
+                    msg:'son'
+                }
+            },
+            methods:{
+                show(){
+                    console.log('调用了子组件的方法')
+                }
+            }
+        }
+
+        var vm=new Vue({
+           el:'#app',
+           data:{
+               
+           },
+           methods:{
+
+           getElent(){
+            // console.log(this.$refs.id3.innerText)
+            // console.log(this.$refs.mylogin.msg)
+            this.$refs.mylogin.show()
+           }
+           },
+           components:{
+               login
+           }
+        });
+    </script>
+</body>
+
+</html>
